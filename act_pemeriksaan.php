@@ -15,13 +15,8 @@
         $sql4 = "INSERT INTO ngetest (idpasien, idgejala, waktu, jawab, keterangan) VALUES ('" . $idpasien . "','" . $idgejala . "','" . $tgl . "','" . $data . "','www')";
         
         $a = $koneksi->query($sql4);
-        if($a==true){
-            echo "gas <br>";
-        }else{
-            echo "gak <br>";
-        }
 
     }
-    // header("location:hasilpemeriksaan.php?id_pasien=$idpasien");
+    header("location:hasilpemeriksaan.php?id_pasien=$idpasien");
 
 ?>
