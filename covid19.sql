@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2020 at 05:02 AM
+-- Generation Time: Apr 05, 2020 at 10:42 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -41,8 +41,20 @@ CREATE TABLE `gejala` (
 --
 
 INSERT INTO `gejala` (`idgejala`, `kode`, `nmgejala`, `keterangan`, `jenis`) VALUES
-(1, '11', 'Batuk', 'batuk yang disebabka oleh virus', 'Batuk kering'),
-(2, '12', 'Demam', 'Badan terasa panas', 'Demam Tinggi ');
+(1, 'G1', 'Batuk', 'Batuk < 2 minggu', 'Gejala'),
+(2, 'G2', 'Sakit Kepala', 'Sakit Kepala < 2 minggu', 'Gejala'),
+(3, 'G3', 'Nyeri Tenggorokan', 'Nyeri tenggororkan < 2 minggu', 'Gejala'),
+(4, 'G4', 'Demam', 'Riwayat Demam < 2 minggu', 'Gejala'),
+(5, 'G5', 'Flu', 'Riwayat sakit tenggorokan < 2 minggu', 'Gejala'),
+(6, 'G6', 'Sesak Napas', '-', 'Gejala'),
+(7, 'G7', 'Letih Lesu', '', 'Gejala'),
+(8, 'R1', 'Berpergian ke wilayah yang terkena dampak covid19', '*Jakarta*Bandung*Surabaya*Malang*Yogyakarta*Depok', 'Resiko'),
+(9, 'R2', 'Kontak langsung dengan pasien covid19', '', 'Resiko'),
+(10, 'R3', 'Riwayat perjalanan ke luar negeri dalam waktu 14 hari sebelum timbul gejala', 'China*Jepang*Amerika*Singapura*Italia*Brazil*Thailand*Filiphina', 'Resiko'),
+(11, 'R4', 'Pernah bekerja atau mengunjungi fasilitas kesehatan yang berhubungan dengan pasien konfirmasi covid19', '', 'Resiko'),
+(12, 'R5', 'Pernah kontak dengan orang yang memiliki riwayat berpergian ke luar negeri yang terkena dampak covid', '', 'Resiko'),
+(13, 'R6', 'Memiliki riwayat kontak dengan hewan penular(hewan sudah terjangkit)', '', 'Resiko'),
+(14, 'R7', 'Memiliki demam(>=38 derajat) atau riwayat demam lebih dari 2 minggu', '', 'Resiko');
 
 -- --------------------------------------------------------
 
@@ -60,14 +72,6 @@ CREATE TABLE `markers` (
   `type` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `markers`
---
-
-INSERT INTO `markers` (`id`, `statusCode`, `name`, `address`, `lat`, `lng`, `type`) VALUES
-(1, 'ID', 'Indonesia', '::1', -7.248400, 112.741898, 'www'),
-(2, 'ID', 'Indonesia', '::1', -7.248400, 112.741898, 'www');
-
 -- --------------------------------------------------------
 
 --
@@ -78,7 +82,7 @@ CREATE TABLE `ngetest` (
   `idtest` int(11) NOT NULL,
   `idpasien` int(11) DEFAULT NULL,
   `idgejala` int(11) DEFAULT NULL,
-  `waktu` timestamp NULL DEFAULT NULL,
+  `waktu` varchar(50) DEFAULT NULL,
   `jawab` varchar(50) DEFAULT NULL,
   `keterangan` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -98,14 +102,6 @@ CREATE TABLE `pasien` (
   `tgllahir` varchar(50) DEFAULT NULL,
   `telepon` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pasien`
---
-
-INSERT INTO `pasien` (`idpasien`, `id`, `nmpasien`, `usia`, `jk`, `tgllahir`, `telepon`) VALUES
-(2, 1, 'qoheng', 12, 'L', '2020-04-05', '082257888807'),
-(3, 2, 'diah', 234, 'P', '2020-04-05', '082257888807');
 
 --
 -- Indexes for dumped tables
@@ -146,13 +142,13 @@ ALTER TABLE `pasien`
 -- AUTO_INCREMENT for table `gejala`
 --
 ALTER TABLE `gejala`
-  MODIFY `idgejala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idgejala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `ngetest`
 --
 ALTER TABLE `ngetest`
-  MODIFY `idtest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `idtest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- Constraints for dumped tables

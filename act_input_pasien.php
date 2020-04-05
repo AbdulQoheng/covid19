@@ -59,8 +59,7 @@
                 $b = $koneksi->query($sql2);
         
                 if ($b == true) {
-                    // header("location:");
-                    echo "sukses lur";
+                    echo "<script type = 'text/javascript'>alert('Sukses Registrasi');window.location.href = ('FormPemeriksaan.php?id_pasien=$id_pasien');</script>";
                 } else {
                     echo "Error !";
                 }
