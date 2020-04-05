@@ -44,9 +44,9 @@
             $statuscode;
 
             if($Latitude != 0){
-                $statuscode = "-";
-            }else{
                 $statuscode = "OK";
+            }else{
+                $statuscode = "-";
             }
 
             
